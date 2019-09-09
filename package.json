@@ -1,0 +1,35 @@
+{
+  "name": "andela-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "devStart": "babel-watch ./server/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel ./server/server.js  --out-dir build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fokafor8666/QuickLoan.git"
+  },
+  "author": "felix",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fokafor8666/QuickLoan/issues"
+  },
+  "homepage": "https://github.com/fokafor8666/QuickLoan#readme",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "express": "^4.17.1",
+    "mocha": "^6.2.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/register": "^7.4.4",
+    "babel-preset-env": "^1.7.0",
+    "babel-watch": "^7.0.0"
+  }
+}
