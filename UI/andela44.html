@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="andela.css"/>
+
+    <style>
+        table {
+            border: 1px solid #cccccc;
+        }
+        body{
+            max-width: 980px;
+            margin: auto;
+        }
+        .container {
+            padding-top: 100px;
+            display: grid;
+            grid-gap: 5px;
+            border: 1px solid black;
+            grid-template-columns: repeat(3,1fr);
+            
+        }
+
+        input {
+            width: 30px;
+            height: 30px;
+            text-align: center;
+        }
+
+        .seats {
+            padding: 3px;
+        }
+
+        .seats small {
+            text-align: center;
+            display: block;
+            padding: 3px;
+        }
+
+        .cantSee {
+            background: red;
+            color: white;
+        }
+
+        .canSee {
+            background: green;
+            color: white;
+        }
+
+        .check {
+            margin-top: 10px;
+            height: 40px;
+            width: 100px;
+
+        }
+    </style>
+</head>
+<body>
+    
+<div class="container">
+    <div class="grid-container1">
+            <div style="padding-left: 50px; color: blue;">
+               <h2><p>Andela Cycle 44:</p> </h2><br> 
+               <h3><p style="text-decoration: underline; color: black">Okafor Felix</p></h3> 
+            </div>
+    </div>
+    <div class="grid-container2">
+        <div class="content">
+            <div>
+                <table>
+                    <tbody id="seats">
+                    <script>
+                        let seatNo = 1;
+                        for (let i = 0; i < 6; i++) {
+                            let row = "<tr class='row" + (i) + "'>";
+                            for (let j = 0; j < 6; j++) {
+                                let random = Math.floor(Math.random() * 10) + 1;
+                                row += "<td class='col" + (j) + "'>" +
+                                    "<div class='seats seatContent" + (j) + "'>" +
+                                    "<small id='seat_no" + (seatNo) + "'>" + (seatNo) + "</small>" +
+                                    "<input type='text' class='seat" + (i) + "' value='" + random + "' />" +
+                                    "</div>" +
+                                    "</td>";
+                                seatNo++;
+                            }
+                            row += "</tr>";
+                            document.write(row);
+                        }
+                    </script>
+                    </tbody>
+                </table>
+                <button id="check" type="button" class="check">check</button>
+            </div>
+            <div id="result"></div>
+        </div>
+        <script>
+            let checkButton = document.getElementById("check");
+            checkButton.addEventListener("click", function (evt) {
+                for (let i = 0; i < 6; i++) {
+                    let row = document.querySelectorAll("td.col" + i + " input");
+                    let seatNos = document.querySelectorAll("div.seatContent" + i);
+                    for (let j = row.length - 1; j >= 0; j--) {
+                        let seatNo = seatNos[j];
+                        if (!row[j - 1]) {
+                            seatNo.classList.remove("cantSee");
+                            seatNo.classList.add("canSee");
+                            break;
+                        }
+                        let back = Number(row[j].value);
+                        let front = Number(row[j - 1].value);
+                        if (back > front) {
+                            seatNo.classList.remove("cantSee");
+                            seatNo.classList.add("canSee");
+                        } else {
+                            seatNo.classList.remove("canSee");
+                            seatNo.classList.add("cantSee");
+                        }
+                    }
+                }
+            });
+        </script>
+    </div>
+    <div class="grid-container3"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<body style="margin: 0; padding:0;  background-color: #fef3d4;">
+<div class="container" style="padding-left: 40%; padding-top: 5%; padding-right: 30%;">
+
+        <p style="border-bottom: 1px solid black">Click the button to find the largest product of a series of inputed digits.</p>
+        <div>
+                <label for="uname" for="data">Enter Digits Here </label>
+                <input type="text" id="data">
+                <button onclick="myFunction()">Check Here</button>
+                <div class="result">This is me</div>
+                <script>
+                function myFunction() {
+                      var data = document.getElementById('data').value;
+
+                      document.getElementById('result').innerHTMLvalue = data;
+                }
+
+                </script>
+
+        </div>
+
+
+</div>
+
+
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Functions</h2>
+
+<p id="demo"></p>
+
+<form action="" method="post">
+    <input type="number" id="input">
+    <button type="button" onclick="document.getElementById('demo').innerHTML = theCelcius(inputData);">click here</button>
+</form>
+
+
+<script>
+
+const input = document.getElementById('input').value;
+const inputData = input.value;
+
+var theCelcius = function celcius(inputData){
+  return 5 * inputData;
+};
+
+
+
+
+</script>
+
+</body>
+</html>
+
