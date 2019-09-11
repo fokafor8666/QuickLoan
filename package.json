@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "devStart": "babel-watch ./server/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel ./server/server.js  --out-dir build"
+    "test": "mocha server/test --require @babel/register --timeout 10000 --exit",
+    "build": "babel ./server/server.js  --out-dir build",
+    "lint": "eslint server --fix"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,9 @@
     "@babel/preset-env": "^7.4.5",
     "@babel/register": "^7.4.4",
     "babel-preset-env": "^1.7.0",
-    "babel-watch": "^7.0.0"
+    "babel-watch": "^7.0.0",
+    "eslint": "^6.3.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2"
   }
 }
